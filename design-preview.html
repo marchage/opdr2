@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Joke-o-Matic Design Preview</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #f8fafc;
+            padding: 40px 20px;
+            margin: 0;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        h1 {
+            text-align: center;
+            color: #1e293b;
+            margin-bottom: 40px;
+        }
+        
+        /* Joke-o-Matic styles */
+        .jom-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            gap: 16px;
+        }
+        .jom-card {
+            position: relative;
+            perspective: 1000px;
+            background: transparent;
+        }
+        .jom-card__inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            min-height: 180px;
+            transition: transform .6s;
+            transform-style: preserve-3d;
+        }
+        .jom-card__front, .jom-card__back {
+            position: absolute;
+            inset: 0;
+            background: #fff;
+            border: 1px solid #e5e7eb;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,.06);
+            padding: 16px;
+            backface-visibility: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .jom-card__front {
+            z-index: 2;
+        }
+        .jom-card__back {
+            transform: rotateY(180deg);
+        }
+        .jom-card .jom-reveal {
+            align-self: flex-start;
+            margin-top: 12px;
+            background: #2563eb;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            padding: 8px 12px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background 0.2s;
+        }
+        .jom-card .jom-reveal:hover {
+            background: #1d4ed8;
+        }
+        .jom-card .jom-reveal:focus {
+            outline: 2px solid #93c5fd;
+            outline-offset: 2px;
+        }
+        .jom-card.is-flipped .jom-card__inner {
+            transform: rotateY(180deg);
+        }
+        .jom-card__setup {
+            font-size: 1.05rem;
+            line-height: 1.4;
+            color: #374151;
+        }
+        .jom-card__punchline {
+            font-size: 1rem;
+            line-height: 1.5;
+            font-weight: 600;
+            color: #059669;
+            text-align: center;
+        }
+        
+        /* Demo controls */
+        .demo-controls {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .demo-btn {
+            background: #6366f1;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 6px;
+            margin: 5px;
+            cursor: pointer;
+            font-weight: 500;
+        }
+        .demo-btn:hover {
+            background: #5855eb;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🃏 Joke-o-Matic Design Preview</h1>
+        
+        <div class="demo-controls">
+            <button class="demo-btn" onclick="flipAll()">Flip All Cards</button>
+            <button class="demo-btn" onclick="resetAll()">Reset All</button>
+        </div>
+
+        <div class="jom-grid" data-reveal="flip">
+            <div class="jom-card" tabindex="0" role="button" aria-expanded="false">
+                <div class="jom-card__inner">
+                    <div class="jom-card__front">
+                        <div class="jom-card__setup">Why don't scientists trust atoms?</div>
+                        <button class="jom-reveal" type="button">Reveal</button>
+                    </div>
+                    <div class="jom-card__back">
+                        <div class="jom-card__punchline">Because they make up everything!</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="jom-card" tabindex="0" role="button" aria-expanded="false">
+                <div class="jom-card__inner">
+                    <div class="jom-card__front">
+                        <div class="jom-card__setup">Why did the developer go broke?</div>
+                        <button class="jom-reveal" type="button">Reveal</button>
+                    </div>
+                    <div class="jom-card__back">
+                        <div class="jom-card__punchline">Because they used up all their cache!</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="jom-card" tabindex="0" role="button" aria-expanded="false">
+                <div class="jom-card__inner">
+                    <div class="jom-card__front">
+                        <div class="jom-card__setup">What do you call a fake noodle?</div>
+                        <button class="jom-reveal" type="button">Reveal</button>
+                    </div>
+                    <div class="jom-card__back">
+                        <div class="jom-card__punchline">An impasta!</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="jom-card" tabindex="0" role="button" aria-expanded="false">
+                <div class="jom-card__inner">
+                    <div class="jom-card__front">
+                        <div class="jom-card__setup">Why don't programmers like nature?</div>
+                        <button class="jom-reveal" type="button">Reveal</button>
+                    </div>
+                    <div class="jom-card__back">
+                        <div class="jom-card__punchline">It has too many bugs!</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="jom-card" tabindex="0" role="button" aria-expanded="false">
+                <div class="jom-card__inner">
+                    <div class="jom-card__front">
+                        <div class="jom-card__setup">How do you organize a space party?</div>
+                        <button class="jom-reveal" type="button">Reveal</button>
+                    </div>
+                    <div class="jom-card__back">
+                        <div class="jom-card__punchline">You planet!</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="jom-card" tabindex="0" role="button" aria-expanded="false">
+                <div class="jom-card__inner">
+                    <div class="jom-card__front">
+                        <div class="jom-card__setup">What's the best thing about Switzerland?</div>
+                        <button class="jom-reveal" type="button">Reveal</button>
+                    </div>
+                    <div class="jom-card__back">
+                        <div class="jom-card__punchline">I don't know, but the flag is a big plus!</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Add click handlers to reveal buttons
+        document.querySelectorAll('.jom-reveal').forEach(button => {
+            button.addEventListener('click', function(e) {
+                e.preventDefault();
+                const card = this.closest('.jom-card');
+                card.classList.toggle('is-flipped');
+                card.setAttribute('aria-expanded', card.classList.contains('is-flipped') ? 'true' : 'false');
+            });
+        });
+
+        // Add keyboard support
+        document.querySelectorAll('.jom-card').forEach(card => {
+            card.addEventListener('keydown', function(e) {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    this.classList.toggle('is-flipped');
+                    this.setAttribute('aria-expanded', this.classList.contains('is-flipped') ? 'true' : 'false');
+                }
+            });
+        });
+
+        // Demo functions
+        function flipAll() {
+            document.querySelectorAll('.jom-card').forEach(card => {
+                card.classList.add('is-flipped');
+                card.setAttribute('aria-expanded', 'true');
+            });
+        }
+
+        function resetAll() {
+            document.querySelectorAll('.jom-card').forEach(card => {
+                card.classList.remove('is-flipped');
+                card.setAttribute('aria-expanded', 'false');
+            });
+        }
+    </script>
+</body>
+</html>

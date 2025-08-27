@@ -1,0 +1,7 @@
+PHP opdracht
+Ontwikkel een op maat gemaakte Elementor module met de naam Joke-o-Matic, die op een aantrekkelijke en gebruiksvriendelijke manier moppen weergeeft in een styled card grid.
+Instructies:
+● De `jokes` kunnen worden opgehaald via een API https://github.com/15Dkatz/official_ joke_api
+● Gebruik caching (transient) voor de api calls
+● Veilige output en translate ready binnen wordpress
+● Als pré een leuke “reveal punchlineˮ animatie
