@@ -1,5 +1,7 @@
 # Joke-o-Matic
 
+![Joke-o-Matic Preview](./Scherm­afbeelding%202025-08-27%20om%2016.55.21.png)
+
 A WordPress plugin that displays jokes in a styled card grid with punchline reveal animations. Works both as a **shortcode** (no dependencies) and as an **Elementor widget** (if Elementor is installed).
 
 ## Features
