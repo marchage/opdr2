@@ -3,7 +3,7 @@
  * Plugin Name:       Joke-o-Matic
  * Description:       Display jokes in a styled card grid with punchline reveal. Works as shortcode [joke-o-matic] or Elementor widget.
  * Version:           1.0.0
- * Author:            Your Name
+ * Author:            Marc Hage
  * Text Domain:       joke-o-matic
  * Domain Path:       /languages
  * Requires at least: 5.6
